@@ -22,6 +22,11 @@
   }
 }
 
+body {
+  /* vh : viewport height기준 100% */
+  height: 100vh;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
