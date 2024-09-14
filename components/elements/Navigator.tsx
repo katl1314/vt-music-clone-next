@@ -5,7 +5,8 @@ import { GoHome } from "react-icons/go";
 import { FiCompass, FiPlus, FiMusic } from "react-icons/fi";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-
+import { dummyPlaylistArray } from "@/lib/dummyData";
+import PlayListNav from "./PlayListNav";
 const Navigator = () => {
   const pathname = usePathname(); // 현재 경로의 pathname을 가져온다.
   const routes = useMemo(() => {
@@ -14,8 +15,8 @@ const Navigator = () => {
       {
         icon: <FiCompass size={20} />,
         label: "둘러보기",
-        isActive: pathname === "/explor",
-        href: "/explor",
+        isActive: pathname === "/explore",
+        href: "/explore",
       },
       {
         icon: <FiMusic size={20} />,
@@ -46,8 +47,8 @@ const Navigator = () => {
               <Link href={href} key={label}>
                 <div
                   className={cn(
-                    "flex flex-row items-center gap-4 text-[16px] hover:bg-[rgba(144,144,144,0.45)] rounded-lg p-2",
-                    isActive && "bg-neutral-80"
+                    "flex flex-row items-center gap-4 text-[16px] hover:bg-neutral-700 rounded-lg p-2",
+                    isActive && "bg-neutral-800"
                   )}
                 >
                   {icon}
@@ -63,11 +64,19 @@ const Navigator = () => {
         <div className="w-full h-[1px] bg-neutral-700"></div>
       </section>
       <section className="p-6">
-        <div className="flex flex-row items-center bg-neutral-700 p-2 rounded-3xl font-[200] justify-center gap-2">
-          {/* 재생목록 */}
+        <div className="flex flex-row items-center bg-neutral-800 p-2 rounded-3xl font-[200] justify-center gap-2 hover:bg-neutral-700 cursor-pointer">
+          {/* 새 재생목록 */}
           <FiPlus size={24} />
           <span>새 재생목록</span>
         </div>
+      </section>
+      <section>
+        {/* PlayList */}
+        <ul className="flex flex-col">
+          {dummyPlaylistArray.map((playList) => {
+            return <PlayListNav key={playList.id} playList={playList} />;
+          })}
+        </ul>
       </section>
     </div>
   );
