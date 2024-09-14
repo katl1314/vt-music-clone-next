@@ -6,6 +6,6 @@ export default async function Home() {
 
   // error.tsx실행 테스트
   // throw new Error("my error");
-
-  return <div>Homepage</div>;
+  // min-height : 600px;
+  return <div className="min-h-[600px]">Homepage</div>;
 }
