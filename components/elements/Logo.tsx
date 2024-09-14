@@ -1,22 +1,21 @@
 "use client";
 
 import React from "react";
+// next.js에서는 이미지 컴포넌트를 제공
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import IconButton from "./IconButton";
 import { RxHamburgerMenu } from "react-icons/rx";
-// next.js에서는 이미지 컴포넌트를 제공
-
-// Next.js에서 이벤트 처리, 리액트 훅 처리는 서버 컴포넌트가 아닌 클라이언트 컴포넌트여야한다.
-const onClickLogo = () => {
-  // home으로 이동 => useRouter를 이용 (appRouter시 next/navigation의 useRouter를 사용한다.)
-  const { push } = useRouter();
-  push("/"); // Home으로 이동
-};
-
-const onClickIcon = () => {};
 
 const Logo = () => {
+  // Next.js에서 이벤트 처리, 리액트 훅 처리는 서버 컴포넌트가 아닌 클라이언트 컴포넌트여야한다.
+  const onClickLogo = () => {
+    // home으로 이동 => useRouter를 이용 (appRouter시 next/navigation의 useRouter를 사용한다.)
+    const { push } = useRouter();
+    push("/"); // Home으로 이동
+  };
+
+  const onClickIcon = () => {};
   return (
     <section className="flex flex-row items-center gap-3">
       <IconButton
