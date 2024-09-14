@@ -3,6 +3,43 @@ import UserIcon from "./UserIcon";
 import PageSession from "./PagePadding";
 import { FaChromecast } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
+
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import Logo from "./elements/Logo";
+import Navigator from "./elements/Navigator";
+
+// shadcn/ui의 drawer를 그대로 가져옴.
+// Drawer => direction 열림 방형
+// DrawerTrigger => 드로우가 열리는 트리거 설정
+const HeaderDrawer = ({ children }: React.PropsWithChildren) => {
+  return (
+    <Drawer direction="left">
+      <DrawerTrigger>{children}</DrawerTrigger>
+      <DrawerContent className="h-full w-[240px] border-[1px]">
+        {/* 로고 */}
+        <div className="py-3">
+          <div className="px-3">
+            <Logo />
+          </div>
+        </div>
+        {/* 재생목록 + 네비게이션 */}
+        <div className="">
+          <Navigator />
+        </div>
+      </DrawerContent>
+    </Drawer>
+  );
+};
+
 // next.js에서 외부 이미지를 가져와야할 때 next.config.js에서 수정해야함.
 const Header = ({ children }: React.PropsWithChildren) => {
   return (
@@ -23,7 +60,7 @@ const Header = ({ children }: React.PropsWithChildren) => {
       <section className="sticky">
         <PageSession>
           <div className="h-[64px] flex flex-row justify-between items-center">
-            <article className="flex flex-row items-center h-[42px] min-w-[480px] bg-[rgba(0,0,0,0.14)] rounded-2xl px-4 gap-4">
+            <article className="lg:flex flex-row items-center h-[42px] min-w-[480px] bg-[rgba(0,0,0,0.14)] rounded-2xl px-4 gap-4 hidden">
               <div>
                 <FiSearch size={24} />
               </div>
@@ -33,6 +70,12 @@ const Header = ({ children }: React.PropsWithChildren) => {
                 placeholder="노래, 앨범, 아티스트, 팟캐스트 검색"
               />
             </article>
+            <HeaderDrawer>
+              {/* min-width가 760이상이면 Logo를 숨긴다. */}
+              <article className="md:hidden">
+                <Logo />
+              </article>
+            </HeaderDrawer>
             <article className="flex flex-row items-center gap-6">
               <FaChromecast size={26} />
               <UserIcon />
