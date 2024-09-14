@@ -7,5 +7,5 @@ export default async function Home() {
   // error.tsx실행 테스트
   // throw new Error("my error");
 
-  return <div>Home</div>;
+  return <div>Homepage</div>;
 }
