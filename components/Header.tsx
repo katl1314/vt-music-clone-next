@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import UserIcon from "./UserIcon";
 import PageSession from "./PagePadding";
@@ -16,19 +17,29 @@ import {
 } from "@/components/ui/drawer";
 import Logo from "./elements/Logo";
 import Navigator from "./elements/Navigator";
+import { useState } from "react";
 
 // shadcn/ui의 drawer를 그대로 가져옴.
 // Drawer => direction 열림 방형
 // DrawerTrigger => 드로우가 열리는 트리거 설정
 const HeaderDrawer = ({ children }: React.PropsWithChildren) => {
+  const [open, setOpen] = useState(false);
+  // Drawer의 onOpenChange를 setOpen과 연결.
+  // open속성을 상태값과 연결한다.
   return (
-    <Drawer direction="left">
+    <Drawer direction="left" open={open} onOpenChange={setOpen}>
       <DrawerTrigger>{children}</DrawerTrigger>
       <DrawerContent className="h-full w-[240px] border-[1px]">
         {/* 로고 */}
         <div className="py-3">
           <div className="px-3">
-            <Logo />
+            <Logo
+              isDrawer={open}
+              onClickClose={() => {
+                // 팝업이 닫혔을때 open상태를 변경 => false로 변경하여 드로우를 숨긴다.
+                setOpen(false);
+              }}
+            />
           </div>
         </div>
         {/* 재생목록 + 네비게이션 */}
@@ -73,7 +84,7 @@ const Header = ({ children }: React.PropsWithChildren) => {
             <HeaderDrawer>
               {/* min-width가 760이상이면 Logo를 숨긴다. */}
               <article className="md:hidden">
-                <Logo />
+                <Logo isDrawer={false} onClickClose={() => {}} />
               </article>
             </HeaderDrawer>
             <article className="flex flex-row items-center gap-6">
