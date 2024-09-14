@@ -13,8 +13,8 @@ const Header = ({ children }: React.PropsWithChildren) => {
             fill
           />
         </div>
-        <div className="absolute top-0 bg-black opacity-40 w-full h-full"></div>
-        <div className="absolute top-0 bg-gradient-to-t from-black opacity-40 w-full h-full"></div>
+        <div className="absolute h-[400px] top-0 bg-black opacity-40 w-full"></div>
+        <div className="absolute h-[400px] top-0 bg-gradient-to-t from-black w-full"></div>
       </section>
       <section className="absolute">{children}</section>
     </header>
