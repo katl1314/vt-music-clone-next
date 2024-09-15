@@ -5,16 +5,7 @@ import PageSession from "./PagePadding";
 import { FaChromecast } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import Logo from "./elements/Logo";
 import Navigator from "./elements/Navigator";
 import { useEffect, useRef, useState } from "react";
@@ -24,9 +15,8 @@ import { cn } from "@/lib/utils";
 // Drawer => direction 열림 방형
 // DrawerTrigger => 드로우가 열리는 트리거 설정
 const HeaderDrawer = ({ children }: React.PropsWithChildren) => {
-  const [open, setOpen] = useState(false);
-  // Drawer의 onOpenChange를 setOpen과 연결.
-  // open속성을 상태값과 연결한다.
+  const [open, setOpen] = useState(false); // 각각 상태값, 상태갱신 함수를 open, onOpenChange에 할당
+
   return (
     <Drawer direction="left" open={open} onOpenChange={setOpen}>
       <DrawerTrigger>{children}</DrawerTrigger>
@@ -54,8 +44,8 @@ const HeaderDrawer = ({ children }: React.PropsWithChildren) => {
 
 // next.js에서 외부 이미지를 가져와야할 때 next.config.js에서 수정해야함.
 const Header = ({ children }: React.PropsWithChildren) => {
-  const [isScroll, setScroll] = useState(false);
-  const headerRef = useRef<HTMLElement>(null);
+  const [isScroll, setScroll] = useState(false); // 스크롤 여부 상태
+  const headerRef = useRef<HTMLElement>(null); // header dom참조를 위한 useRef사용
 
   useEffect(() => {
     // 이벤트 감지
