@@ -4,17 +4,14 @@ import Logo from "./elements/Logo";
 import Navigator from "./elements/Navigator";
 const Sidebar = ({ children }: React.PropsWithChildren) => {
   return (
-    // 네비게이션바와 메인영역을 flex-row로
     <div className="flex flex-row h-full">
-      {/* 
-        네비게이션 바
-        기본적으로 Sidebar는 PC일때만 표시한다.
-        모바일에서는 shadcn/drawer를 사용하여 표시함.
-      */}
+      {/* 내비게이션 바 */}
       <nav className="w-[240px] border-r-[1px] border-neutral-600 hidden lg:block">
+        {/* 로고 */}
         <div className="p-[24px]">
           <Logo isDrawer={false} onClickClose={() => {}} />
         </div>
+        {/* 내비게이션 */}
         <div className="">
           <Navigator />
         </div>

@@ -1,11 +1,16 @@
-import { sleep } from "@/lib/utils";
-import Image from "next/image";
+// import { sleep } from "@/lib/utils";
+// import Image from "next/image";
+import Category from "./components/Category";
 
 export default async function Home() {
-  await sleep(2000); // 2초 뒤에 컴포넌트를 실행한다.
-
   // error.tsx실행 테스트
   // throw new Error("my error");
-  // min-height : 600px;
-  return <div className="min-h-[600px] h-[1200px]">Homepage</div>;
+  return (
+    <div className="min-h-[600px] h-[1200px]">
+      <div className="mt-9">
+        {/* 페이지 에서만 사용하므로 공통 컴포넌트로 만들지 않는다. */}
+        <Category />
+      </div>
+    </div>
+  );
 }

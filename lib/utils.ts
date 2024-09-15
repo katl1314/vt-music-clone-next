@@ -1,6 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+// 클래스 병합 => 중복되는 클래스가 여러개 들어오면 마지막에 들어오는 놈으로 머지
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }

@@ -10,6 +10,7 @@ import Logo from "./elements/Logo";
 import Navigator from "./elements/Navigator";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import useUIState from "@/hooks/useUIState";
 
 // shadcn/ui의 drawer를 그대로 가져옴.
 // Drawer => direction 열림 방형
@@ -45,8 +46,9 @@ const HeaderDrawer = ({ children }: React.PropsWithChildren) => {
 // next.js에서 외부 이미지를 가져와야할 때 next.config.js에서 수정해야함.
 const Header = ({ children }: React.PropsWithChildren) => {
   const [isScroll, setScroll] = useState(false); // 스크롤 여부 상태
+  const { headerImageSrc } = useUIState(); // 이미지 기본값 세팅 완료
   const headerRef = useRef<HTMLElement>(null); // header dom참조를 위한 useRef사용
-
+  console.log(headerImageSrc);
   useEffect(() => {
     // 이벤트 감지
     const handleScroll = () => {
@@ -68,7 +70,7 @@ const Header = ({ children }: React.PropsWithChildren) => {
         <div className="relative h-[400px] w-full">
           {/* next.js 컴포넌트 Image의 fill을 사용할 경우 부모 요소는 relative이어야함. */}
           <Image
-            src="https://images.unsplash.com/photo-1707833558984-3293e794031c"
+            src={headerImageSrc}
             alt="헤더 이미지"
             className="object-cover"
             fill
