@@ -1,20 +1,7 @@
 "use client";
+import { IPlayList } from "@/types";
 import React from "react";
 import { IoMdPlayCircle } from "react-icons/io";
-interface ISongList {
-  name: string;
-  channelId: number;
-  channel: string;
-  src: string;
-  imageSrc: string;
-}
-
-interface IPlayList {
-  id: number;
-  owner: string;
-  playlistName: string;
-  songList: ISongList[];
-}
 
 interface IPlayListProps {
   playList: IPlayList;
