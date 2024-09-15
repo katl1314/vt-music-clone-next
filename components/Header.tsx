@@ -113,7 +113,7 @@ const Header = ({ children }: React.PropsWithChildren) => {
             </article>
             <HeaderDrawer>
               {/* min-width가 760이상이면 Logo를 숨긴다. */}
-              <article className="md:hidden">
+              <article className="lg:hidden">
                 <Logo isDrawer={false} onClickClose={() => {}} />
               </article>
             </HeaderDrawer>
