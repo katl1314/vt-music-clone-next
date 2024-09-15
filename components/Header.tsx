@@ -48,7 +48,7 @@ const Header = ({ children }: React.PropsWithChildren) => {
   const [isScroll, setScroll] = useState(false); // 스크롤 여부 상태
   const { headerImageSrc } = useUIState(); // 이미지 기본값 세팅 완료
   const headerRef = useRef<HTMLElement>(null); // header dom참조를 위한 useRef사용
-  console.log(headerImageSrc);
+
   useEffect(() => {
     // 이벤트 감지
     const handleScroll = () => {
