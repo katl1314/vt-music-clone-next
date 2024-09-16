@@ -5,6 +5,9 @@ import React from "react";
 import Image from "next/image";
 import { getRandomElementFromArray } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import { MdMoreVert } from "react-icons/md";
+import { FiPlay } from "react-icons/fi";
+import IconButton from "./elements/IconButton";
 
 interface IPlayListCard {
   playList: IPlayList;
@@ -19,17 +22,38 @@ const PlayListCard: React.FC<IPlayListCard> = ({ playList }) => {
     push(`/playlist?list=${id}`);
   };
 
+  // Play기능
+  const onClickPlay = () => {
+    // TODO 재생 기능 추가
+  };
+
   const imageSrc = getRandomElementFromArray(songList).imageSrc;
   return (
     // 카드의 높이는 240px
     <article
-      className="min-h-[240px] h-[240px] cursor-pointer"
+      className="min-h-[240px] h-[240px] cursor-pointer group"
       onClick={() => onClickCard(id)}
     >
       {/* thumbnail의 position relative, 높이 136px */}
       <section className="relative h-[136px]">
         {/* fill: 부모 요소의 크기만큼 채우는 기능 (부모 요소에 position이 설정되어야함.) */}
-        <Image src={imageSrc} alt="thumbnail" fill />
+        {/* Image렌더링 1 */}
+        <Image src={imageSrc} alt="thumbnail" fill className="object-cover" />
+        {/* div 렌더링 2 */}
+        <div className="relative hidden group-hover:block bg-gradient-to-b from-[rgb(0,0,0,0.7)] top-0 w-full h-full">
+          <div className="top-2 right-4 absolute">
+            <IconButton
+              icon={<MdMoreVert size={20} />}
+              onClickIcon={() => {}}
+            />
+          </div>
+          <div className="bottom-2 right-4 absolute flex flex-row items-center justify-center transform-gpu transition-transform hover:scale-110 bg-[rgb(0,0,0,0.7)] rounded-[50%] pl-[1.5px]">
+            <IconButton
+              icon={<FiPlay size={20} color="red" className="" />}
+              onClickIcon={onClickPlay}
+            />
+          </div>
+        </div>
       </section>
       <section className="mt-2">
         <div>{playlistName}</div>
