@@ -15,3 +15,9 @@ export function getRandomInt(min: number, max: number) {
   // 특정 범위 내 랜덤값을 가져온다.
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+export function getRandomElementFromArray<T>(arr: T[]): T {
+  const length = arr.length;
+
+  return arr[getRandomInt(0, length - 1)];
+}
