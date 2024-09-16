@@ -8,7 +8,7 @@ const IconButton = ({
   onClickIcon: () => void;
 }) => {
   return (
-    <div>
+    <>
       <div
         className="flex justify-center items-center w-[36px] h-[36px] hover:bg-[rgba(144,144,144,0.45)] rounded-full cursor-pointer"
         onClick={onClickIcon}
@@ -16,7 +16,7 @@ const IconButton = ({
         {/* 햄버거 아이콘의 경우 react-icons에서 사용한다. */}
         {icon}
       </div>
-    </div>
+    </>
   );
 };
 
