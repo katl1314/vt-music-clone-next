@@ -19,9 +19,9 @@ export default async function Home() {
           {/* TODO Carousel */}
           <PlayListCarousel
             playListArray={[...cloneDummyPlayList]}
-            thumnail={
+            thumbnail={
               <div className="w-[56px] h-[56px]">
-                <UserIcon />
+                <UserIcon size="lg" />
               </div>
             }
             title="다시 듣기"
