@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import UserIcon from "./UserIcon";
-import PageSession from "./PagePadding";
+import PagePadding from "./PagePadding";
 import { FaChromecast } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 
@@ -21,7 +21,7 @@ const HeaderDrawer = ({ children }: React.PropsWithChildren) => {
   return (
     <Drawer direction="left" open={open} onOpenChange={setOpen}>
       <DrawerTrigger>{children}</DrawerTrigger>
-      <DrawerContent className="h-full w-[240px] border-[1px]">
+      <DrawerContent className="h-full w-[240px]">
         {/* 로고 */}
         <div className="py-3">
           <div className="px-3">
@@ -33,9 +33,6 @@ const HeaderDrawer = ({ children }: React.PropsWithChildren) => {
               }}
             />
           </div>
-        </div>
-        {/* 재생목록 + 네비게이션 */}
-        <div className="">
           <Navigator />
         </div>
       </DrawerContent>
@@ -82,24 +79,19 @@ const Header = ({ children }: React.PropsWithChildren) => {
       {/* 자식요소가 sticky이고 부모 요소가 relative이면 적용된다. */}
       <section
         className={cn(
-          "sticky top-[0px] z-10 transition ease-in-out duration-500",
+          "sticky top-0 z-10 transition ease-in-out duration-500",
           isScroll ? "bg-black" : "bg-transparent"
         )}
       >
-        <PageSession>
+        <PagePadding>
           <div className="h-[64px] flex flex-row justify-between items-center">
-            <article
-              className={cn(
-                "lg:flex flex-row items-center h-[42px] min-w-[480px] bg-[rgba(0,0,0,0.14)] rounded-2xl px-4 gap-4 hidden",
-                isScroll ? "border-[1px]" : "border-0"
-              )}
-            >
+            <article className="h-[42px] min-w-[480px] hidden lg:flex flex-row items-center bg-[rgba(0,0,0,0.14)] rounded-2xl px-4 gap-4 border border-ne">
               <div>
                 <FiSearch size={24} />
               </div>
               <input
                 type="text"
-                className="h-full w-full bg-transparent px-[10px]"
+                className="h-full w-full bg-transparent"
                 placeholder="노래, 앨범, 아티스트, 팟캐스트 검색"
               />
             </article>
@@ -114,9 +106,9 @@ const Header = ({ children }: React.PropsWithChildren) => {
               <UserIcon />
             </article>
           </div>
-        </PageSession>
+        </PagePadding>
       </section>
-      <section className="absolute">{children}</section>
+      <section className="relative">{children}</section>
     </header>
   );
 };

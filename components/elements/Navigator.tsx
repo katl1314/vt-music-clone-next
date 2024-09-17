@@ -59,11 +59,11 @@ const Navigator = () => {
           }
         )}
       </section>
-      <section className="p-6">
+      <section className="px-6">
         {/* 구분자 */}
         <div className="w-full h-[1px] bg-neutral-700"></div>
       </section>
-      <section className="p-6">
+      <section className="px-6">
         <div className="flex flex-row items-center bg-neutral-800 p-2 rounded-3xl font-[200] justify-center gap-2 hover:bg-neutral-700 cursor-pointer">
           {/* 새 재생목록 */}
           <FiPlus size={24} />

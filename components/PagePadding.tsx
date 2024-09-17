@@ -5,9 +5,7 @@
 // sm: min-width: 640px
 // 위 조건에 따라 스타일을 적용하고 싶을때 사용한다.
 const PagePadding = ({ children }: React.PropsWithChildren) => {
-  return (
-    <div className="mx-auto px-[10px] py-[2px] lg:px-[100px]">{children}</div>
-  );
+  return <div className="mx-auto px-[10px] py-2 lg:px-[100px]">{children}</div>;
 };
 
 export default PagePadding;
