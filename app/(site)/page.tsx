@@ -1,4 +1,3 @@
-import PagePadding from "@/components/PagePadding";
 import Category from "./components/Category";
 import PlayListCarousel from "@/components/PlayListCarousel";
 import { dummyPlaylistArray, getPlaylistById } from "@/lib/dummyData";
@@ -13,7 +12,7 @@ export default async function Home() {
   const cloneDummyPlayList3 = [await getPlaylistById(2)];
   const cloneDummyPlayList4 = [await getPlaylistById(3)];
   return (
-    <PagePadding>
+    <>
       <div className="min-h-[600px]">
         <div className="mt-9">
           {/* 페이지 에서만 사용하므로 공통 컴포넌트로 만들지 않는다. */}
@@ -48,6 +47,6 @@ export default async function Home() {
           />
         </div>
       </div>
-    </PagePadding>
+    </>
   );
 }

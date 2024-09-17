@@ -1,4 +1,3 @@
-import PagePadding from "@/components/PagePadding";
 import React from "react";
 import Category from "./components/Category";
 import { getAllPlaylist, getSongListTop10 } from "@/lib/dummyData";
@@ -13,17 +12,17 @@ const page = async () => {
   ]);
 
   return (
-    <PagePadding>
+    <>
       <div className="mt-4"></div>
+      {/* 카테고리 메뉴 */}
       <Category />
       <div className="mt-4"></div>
-      <PlayListCarousel
-        playListArray={[...playListArray]}
-        title="새 앨범 및 싱글"
-      />
+      {/* Playlist 캐러셀 */}
+      <PlayListCarousel playListArray={playListArray} title="새 앨범 및 싱글" />
       <div className="mt-4"></div>
-      <SongListCarousel songListTop10={[...songListTop10]} title="인기곡" />
-    </PagePadding>
+      {/* 인기곡 캐러셀 */}
+      <SongListCarousel songListTop10={songListTop10} title="인기곡" />
+    </>
   );
 };
 
