@@ -21,3 +21,26 @@ export function getRandomElementFromArray<T>(arr: T[]): T {
 
   return arr[getRandomInt(0, length - 1)];
 }
+
+// chunk array
+export function getChunkArray<T>(arr: T[], size: number) {
+  // 청크할 길이가 배열 길이보다 크면 원본 배열을 반환합니다.
+  if (arr.length < size) return [arr];
+
+  // 청크 할 길이가 배열 길이보다 작으면 길이만큼 청크합니다.
+  const chunkArray = []; // [[1,2,3,4], [5,6,7,8], [9, 10]]
+  let start = 0;
+  let last = size;
+  while (true) {
+    let chunk = arr.slice(start, last);
+
+    if (chunk.length < 1) break;
+
+    chunkArray.push(chunk);
+    let tmp = last;
+    last += size;
+    start = tmp;
+  }
+
+  return chunkArray;
+}
