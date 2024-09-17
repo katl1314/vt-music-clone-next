@@ -63,6 +63,7 @@ const Header = ({ children }: React.PropsWithChildren) => {
 
   return (
     <header ref={headerRef} className="relative overflow-y-auto w-full h-full">
+      {/* 헤더 영역 */}
       <section className="absolute top-0 w-full">
         <div className="relative h-[400px] w-full">
           {/* next.js 컴포넌트 Image의 fill을 사용할 경우 부모 요소는 relative이어야함. */}
@@ -80,7 +81,7 @@ const Header = ({ children }: React.PropsWithChildren) => {
       <section
         className={cn(
           "sticky top-0 z-10 transition ease-in-out duration-500",
-          isScroll ? "bg-black" : "bg-transparent"
+          isScroll && "bg-black"
         )}
       >
         <PagePadding>
@@ -108,6 +109,7 @@ const Header = ({ children }: React.PropsWithChildren) => {
           </div>
         </PagePadding>
       </section>
+      {/* 콘텐츠 영역 */}
       <section className="relative">{children}</section>
     </header>
   );
