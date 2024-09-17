@@ -70,7 +70,7 @@ const Navigator = () => {
           <span>새 재생목록</span>
         </div>
       </section>
-      <section>
+      <section className="mt-4">
         {/* PlayList */}
         <ul className="flex flex-col">
           {dummyPlaylistArray.map((playList) => {

@@ -16,8 +16,8 @@ const Sidebar = ({ children }: React.PropsWithChildren) => {
           <Navigator />
         </div>
       </nav>
-      {/* 메인 콘텐츠 */}
-      <main className="flex-1">{children}</main>
+      {/* 메인 콘텐츠: 기존 flex:1에서 calc를 사용하여 영역을 계산한다. */}
+      <main className="w-full lg:w-[calc(100%-240px)]">{children}</main>
     </div>
   );
 };
