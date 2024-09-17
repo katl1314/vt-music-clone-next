@@ -66,7 +66,7 @@ const SongListCarousel: React.FC<ISongListCarouselProps> = ({
             <CarouselItem
               key={index}
               // 반응형에 따라 playList를 보여줄 수 있도록 flex-basis속성 사용
-              className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+              className="basis-[100%] md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
             >
               <SongColumn songList={songlist} />
             </CarouselItem>

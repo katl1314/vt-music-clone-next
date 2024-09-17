@@ -23,7 +23,7 @@ const HeaderDrawer = ({ children }: React.PropsWithChildren) => {
       <DrawerTrigger>{children}</DrawerTrigger>
       <DrawerContent className="h-full w-[240px]">
         {/* 로고 */}
-        <div className="py-3">
+        <div className="py-8">
           <div className="px-3">
             <Logo
               isDrawer={open}
