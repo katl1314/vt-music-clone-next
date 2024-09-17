@@ -52,7 +52,8 @@ const PlayListCarousel: React.FC<IPlayListCarouselProps> = ({
           {playListArray?.map((playList, index) => (
             <CarouselItem
               key={index}
-              className="md:basis-1/2 lg:basis-1/3 xl:basis-1/5"
+              // 반응형에 따라 playList를 보여줄 수 있도록 flex-basis속성 사용
+              className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
             >
               <PlayListCard playList={playList} />
             </CarouselItem>
