@@ -39,7 +39,7 @@ const GenreListCarousel: React.FC<IGenreList> = ({ genres, title }) => {
             return (
               <CarouselItem
                 key={index}
-                className="basis-[100%] md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                className="basis-1/3 lg:basis-1/4 xl:basis-1/5"
               >
                 <GenreColumn genres={genres} />
               </CarouselItem>
@@ -53,13 +53,19 @@ const GenreListCarousel: React.FC<IGenreList> = ({ genres, title }) => {
 
 const GenreCard: React.FC<{ genre: string }> = ({ genre }) => {
   return (
-    <div className="h-[48px] flex items-center mt-4 px-4 w-full">{genre}</div>
+    <article className="h-[48px] flex items-center mt-4 w-full cursor-pointer bg-neutral-700 rounded-lg">
+      <div
+        className="h-full w-2 rounded-l-lg"
+        style={{ backgroundColor: "#f00" }}
+      ></div>
+      <div className="flex items-center justify-center px-4 ">{genre}</div>
+    </article>
   );
 };
 
 const GenreColumn: React.FC<Pick<IGenreList, "genres">> = ({ genres }) => {
   return genres.map((genre, index) => {
-    return <GenreCard genre={genre} key={index} />;
+    return <GenreCard genre={genre} key={genre} />;
   });
 };
 
