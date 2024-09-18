@@ -1,26 +1,33 @@
+import { getPlaylistById } from "@/lib/dummyData";
 import React from "react";
-import {
-  usePathname,
-  useRouter,
-  useParams,
-  useSearchParams,
-} from "next/navigation";
+import { redirect, notFound } from "next/navigation";
+// import {
+//   usePathname,
+//   useRouter,
+//   useParams,
+//   useSearchParams,
+// } from "next/navigation";
 
-// searchParams는 url에 searchParam(query string)가 있을때 값을 key, value로 가져올 수 있다.
-// ex) /playlist?list=10 => searchParams { list : 10 }
-const page = (props: { searchParams: { list: number } }) => {
-  return <div>PlayList :: {props.searchParams.list}</div>;
+interface IPlayListProps {
+  searchParams: {
+    list: string;
+  };
+}
+
+const page: React.FC<IPlayListProps> = async ({ searchParams }) => {
+  // 서버 사이드 컴포넌트의 props는 params와 searchParams가 있음.
+  const id = parseInt(searchParams.list); // querystring으로 전달한 값을 가져오고.
+  const playlist = await getPlaylistById(id); // 플레이리스트 조회합니다.
+
+  // 경로를 변경가능한 기능이 포함된 useRouter는 클라이언트 컴포넌트에서만 사용.
+  // 서버 컴포넌트시 useRouter를 사용하지 않고 redirect를 사용함.
+  if (playlist === undefined || playlist === null) {
+    redirect("/"); // 사용자를 홈으로 리다이렉션할 수 있다. (서버컴포넌트용)
+    // 반대로 리스트가 없으면 notFound함수도 가능
+    // notFound(); // 404 페이지가 표시됩니다.
+  }
+  console.log(searchParams, playlist);
+  return <div>PlayList :: {searchParams.list}</div>;
 };
 
 export default page;
-
-/**
- * next/navigation 훅 제공
- * useRouter : 클라이언트 컴포넌트용으로 URL을 프로그래밍적으로 동적 변경 가능 => BOM History API
- * usePathname : 클라이언트 컴포넌트용으로 URL 경로명을 반환합니다.
- * useSearchParams : 클라이언트 컴포넌트용으로 쿼리스트링 반환
- * useParams : 클라이언트 컴포넌트용으로 URL 동적 세그먼트 반환합니다. (동적 경로)
- *
- * 즉 위 4개의 훅은 next.js13이후에 사용할 수 있으나, 클라이언트 컴포넌트에서만 사용가능 'use client'반드시 사용해야함.
- * 하지만 서버 컴포넌트로 사용할 때 함수 인자에 가져올 수 있음. 동적 세그먼트 및 searchParams....
- */
