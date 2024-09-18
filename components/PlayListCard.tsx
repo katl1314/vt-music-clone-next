@@ -38,7 +38,12 @@ const PlayListCard: React.FC<IPlayListCard> = ({ playList }) => {
       <section className="relative h-[136px]">
         {/* fill: 부모 요소의 크기만큼 채우는 기능 (부모 요소에 position이 설정되어야함.) */}
         {/* Image렌더링 1 */}
-        <Image src={imageSrc} alt="thumbnail" fill className="object-cover" />
+        <Image
+          src={imageSrc}
+          alt="thumbnail"
+          fill
+          className="object-cover rounded-lg"
+        />
         {/* div 렌더링 2 */}
         <div className="hidden relative group-hover:block bg-gradient-to-b from-[rgb(0,0,0,0.7)] top-0 w-full h-full">
           <div className="top-2 right-4 absolute">
