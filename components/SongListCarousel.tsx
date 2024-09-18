@@ -21,7 +21,7 @@ interface ISongListCarouselProps {
 
 const SongColumn: React.FC<{ songList: ITopSong[] }> = ({ songList }) => {
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       {songList.map((song, index) => {
         return <SongCard key={index} song={song} />;
       })}
