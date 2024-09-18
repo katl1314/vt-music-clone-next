@@ -1,8 +1,13 @@
 import React from "react";
 import Category from "./components/Category";
-import { getAllPlaylist, getSongListTop10 } from "@/lib/dummyData";
+import {
+  dymmyGenreList,
+  getAllPlaylist,
+  getSongListTop10,
+} from "@/lib/dummyData";
 import PlayListCarousel from "@/components/PlayListCarousel";
 import SongListCarousel from "@/components/SongListCarousel";
+import GenreListCarousel from "@/components/GenreListCarousel";
 
 const page = async () => {
   // Promise.all을 사용하여 순회 가능한 Promsie가 모두 resolve되었으면 실행한다.
@@ -23,6 +28,8 @@ const page = async () => {
       {/* 인기곡 캐러셀 */}
       <SongListCarousel songListTop10={songListTop10} title="인기곡" />
       <div className="mt-20"></div>
+      {/* 분위기 및 장르 */}
+      <GenreListCarousel genres={dymmyGenreList} title="분위기 및 장르" />
       <div className="mt-20"></div>
       <div className="mt-20"></div>
     </>

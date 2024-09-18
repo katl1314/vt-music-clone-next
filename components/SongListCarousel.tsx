@@ -60,7 +60,6 @@ const SongListCarousel: React.FC<ISongListCarouselProps> = ({
             </div>
           </div>
         </div>
-
         <CarouselContent className="mt-4">
           {chunkTop10SongList.map((songlist, index) => (
             <CarouselItem
