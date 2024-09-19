@@ -34,3 +34,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+// 서버 사이드 컴포넌트의 props는 params와 searchParams가 있음.
+
+// Next.js13 이후의 URL동작을 프로그래밍으로 조작할때 next/navigation을 사용함.
+// 클라이언트용 컴포넌트를 사용하여 경로를 변경할 때 : useRouter를 통해 push, pop, ... 등 다양한 함수 제공
+// 서버 컴포넌트에서 리다이렉트 시 redirect 또는 permanentRedirect를 사용함.
+// redirect("/"); // 사용자를 홈으로 리다이렉션할 수 있다. (서버컴포넌트용) => 임시 리다이렉트 (307)
+// notFound(); // 404 페이지가 표시됩니다. => 커스텀 여부 확인 필요
