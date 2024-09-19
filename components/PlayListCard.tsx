@@ -47,10 +47,7 @@ const PlayListCard: React.FC<IPlayListCard> = ({ playList }) => {
         {/* div 렌더링 2 */}
         <div className="hidden relative group-hover:block bg-gradient-to-b from-[rgb(0,0,0,0.7)] top-0 w-full h-full">
           <div className="top-2 right-4 absolute">
-            <IconButton
-              icon={<MdMoreVert size={20} />}
-              onClickButton={() => {}}
-            />
+            <IconButton icon={<MdMoreVert size={20} />} />
           </div>
           <div className="absolute bottom-2 right-4 flex items-center justify-center transform-gpu transition-transform hover:scale-110 bg-[rgb(0,0,0,0.7)] rounded-full pl-[1.5px] hover:bg-[rgba(0,0,0,0.9)]">
             <IconButton

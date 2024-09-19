@@ -45,15 +45,9 @@ const SongCard: React.FC<ISongCardProps> = ({ song }) => {
         <div>{name}</div>
       </div>
       <section className="hidden absolute right-0 flex-row items-center justify-end h-[48px] w-full group-hover:flex rounded-full">
-        <IconButton icon={<FiThumbsUp size={20} />} onClickButton={() => {}} />
-        <IconButton
-          icon={<FiThumbsDown size={20} />}
-          onClickButton={() => {}}
-        />
-        <IconButton
-          icon={<FiMoreVertical size={20} />}
-          onClickButton={() => {}}
-        />
+        <IconButton icon={<FiThumbsUp size={20} />} />
+        <IconButton icon={<FiThumbsDown size={20} />} />
+        <IconButton icon={<FiMoreVertical size={20} />} />
       </section>
     </article>
   );

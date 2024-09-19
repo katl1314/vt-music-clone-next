@@ -33,10 +33,9 @@ const PlayListHead: React.FC<IPlayListHeadProp> = ({ playlist }) => {
           <div>{`${songList.length}곡 · 15분`}</div>
         </div>
         <ul>
-          <IconButton
-            icon={<FiMoreVertical size={24} />}
-            onClickButton={() => {}}
-          />
+          <IconButton icon={<FiMoreVertical size={24} />} />
+          <WhiteButton label="재생" />
+          <DarkButton label="보관함에 저장" />
         </ul>
       </article>
     </section>
