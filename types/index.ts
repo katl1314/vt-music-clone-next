@@ -32,3 +32,9 @@ export interface ITopSong extends ISong {
   prevRank: number; // 이전 순위
   rank: number; // 현 순위
 }
+
+export interface IButton {
+  label: string;
+  icon?: React.ReactNode;
+  onClickButton?: () => void;
+}

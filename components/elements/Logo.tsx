@@ -23,16 +23,19 @@ const Logo = ({
 
   // 만약 isDrawerd이 true이면 drawer가 열렸으므로 X아이콘, 아니면 햄버거 표시
 
-  const onClickIcon = () => {};
+  const onClickButton = () => {};
 
   return (
     <section className="flex flex-row items-center gap-3">
       {isDrawer ? (
-        <IconButton icon={<RxCross2 size="24" />} onClickIcon={onClickClose} />
+        <IconButton
+          icon={<RxCross2 size="24" />}
+          onClickButton={onClickClose}
+        />
       ) : (
         <IconButton
           icon={<RxHamburgerMenu size="24" />}
-          onClickIcon={onClickIcon}
+          onClickButton={onClickButton}
         />
       )}
 
