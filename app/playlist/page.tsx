@@ -4,6 +4,7 @@ import { permanentRedirect } from "next/navigation";
 import { IPlayList } from "@/types";
 import { getRandomElementFromArray } from "@/lib/utils";
 import HeaderBgChanger from "@/components/HeaderBgChanger";
+import PlayListHead from "./components/PlayListHead";
 
 interface IPlayListProps {
   searchParams: {
@@ -24,7 +25,8 @@ const page: React.FC<IPlayListProps> = async ({ searchParams }) => {
   return (
     <div>
       <HeaderBgChanger imageSrc={imageSrc} />
-      {id}
+      <div className="mt-12"></div>
+      <PlayListHead playlist={playlist} />
     </div>
   );
 };
