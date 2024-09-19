@@ -5,6 +5,7 @@ import { IPlayList } from "@/types";
 import { getRandomElementFromArray } from "@/lib/utils";
 import HeaderBgChanger from "@/components/HeaderBgChanger";
 import PlayListHead from "./components/PlayListHead";
+import SongCardExpand from "@/components/SongCardExpand";
 
 interface IPlayListProps {
   searchParams: {
@@ -27,6 +28,12 @@ const page: React.FC<IPlayListProps> = async ({ searchParams }) => {
       <HeaderBgChanger imageSrc={imageSrc} />
       <div className="mt-12"></div>
       <PlayListHead playlist={playlist} />
+      <div className="mt-12"></div>
+      <section className="flex flex-col gap-2">
+        {playlist.songList.map((song) => {
+          return <SongCardExpand song={song} key={song.name} />;
+        })}
+      </section>
     </div>
   );
 };
