@@ -22,7 +22,7 @@ const PlayListHead: React.FC<IPlayListHeadProp> = ({ playlist }) => {
   // 모바일의 경우 flex-col, PC의 경우 flex-row로 설정함.
   return (
     <section>
-      <div className="flex items-center gap-[50px] flex-row">
+      <div className="flex items-center gap-[50px] flex-col lg:flex-row">
         <div className="relative w-[160px] h-[160px] lg:w-[240px] lg:h-[240px]">
           <Image src={imageSrc} alt="songImage" fill />
         </div>
