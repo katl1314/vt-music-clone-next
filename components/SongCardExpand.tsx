@@ -9,7 +9,6 @@ import {
   FiThumbsDown,
   FiMoreVertical,
 } from "react-icons/fi";
-import { RxTriangleDown, RxTriangleUp, RxDotFilled } from "react-icons/rx";
 import IconButton from "./elements/IconButton";
 import { useRouter } from "next/navigation";
 

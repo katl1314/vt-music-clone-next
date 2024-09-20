@@ -15,7 +15,7 @@ interface ISongCardProps {
 }
 
 const SongCard: React.FC<ISongCardProps> = ({ song }) => {
-  const { rank, prevRank, name, channel, channelId, imageSrc, src } = song;
+  const { rank, prevRank, name, imageSrc } = song;
   return (
     <article className="flex flex-row items-center gap-4 w-full h-[48px] relative group cursor-pointer">
       {/* 이미지 */}
