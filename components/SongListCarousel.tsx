@@ -34,7 +34,7 @@ const SongListCarousel: React.FC<ISongListCarouselProps> = ({
   title,
   songListTop10,
   subtitle,
-  thumbnail: thumnail,
+  thumbnail,
 }) => {
   // 10개의 TopSong List를 4개로 쪼개자.
   const chunkTop10SongList = getChunkArray(songListTop10, 4); // 무조건 이차원 배열
@@ -43,7 +43,7 @@ const SongListCarousel: React.FC<ISongListCarouselProps> = ({
       <Carousel>
         <div className="flex flex-row justify-between items-end my-2">
           <article className="flex flex-row gap-3">
-            {thumnail}
+            {thumbnail}
             <div className="flex flex-col justify-center">
               <div>
                 {subtitle && <div className="text-neutral-500">{subtitle}</div>}

@@ -23,14 +23,14 @@ const PlayListCarousel: React.FC<IPlayListCarouselProps> = ({
   title,
   playListArray,
   subtitle,
-  thumbnail: thumnail,
+  thumbnail,
 }) => {
   return (
     <div className="w-full">
       <Carousel>
         <div className="flex flex-row justify-between items-end my-2">
           <article className="flex flex-row gap-3">
-            {thumnail}
+            {thumbnail}
             <div className="flex flex-col justify-center">
               <div>
                 {subtitle && <div className="text-neutral-500">{subtitle}</div>}
