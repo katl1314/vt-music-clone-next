@@ -11,7 +11,7 @@ interface IPlayerAction {
 }
 
 const usePlayerState = create<IPlayerState & IPlayerAction>((set) => ({
-  isVisiblePlayer: false,
+  isVisiblePlayer: true,
   setIsVisiblePlayer: (isVisiblePlayer) => set({ isVisiblePlayer }),
 }));
 

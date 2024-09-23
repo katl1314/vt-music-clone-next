@@ -1,6 +1,7 @@
 "use client";
 import usePlayerState from "@/hooks/usePlayerState";
 import React from "react";
+import PlayerContent from "./PlayerContent";
 
 // 플레이어는 무조건 하단에 고정된 상태로 표시함.
 const PlayerWrapper = () => {
@@ -13,7 +14,7 @@ const PlayerWrapper = () => {
 
   return (
     <div className="fixed bottom-0 w-full h-[72px] bg-neutral-900">
-      playerWrapper
+      <PlayerContent />
     </div>
   );
 };
