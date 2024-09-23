@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ["latin"] });
 // 만약 og같은 기능 사용시 metadata에 추가해야할듯.
 export const metadata: Metadata = {
   title: "Youtube Music Clone Coding",
+  icons: {
+    icon: "./favicon.ico", // 아이콘, 이미지, 등 정적 리소스는 public에 위치한다.
+  },
   description: "Youtube Music Clone Coding by Next.js",
 };
 
