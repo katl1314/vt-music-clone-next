@@ -20,13 +20,15 @@ const PlayerContent = () => {
 
   const isLoading = activeSong?.src && state.buffered?.length === 0;
 
+  if (isLoading) return;
+
   const handleNextBtn = useCallback(() => {
     if (nextPlayerQueue.length === 0) {
       // 큐에 남은 노래가 없으면?
       controls.pause();
       return;
     }
-    playNext(); // 마지막 노래가 아니면?
+    playNext(); // 마지막 노래가 아니면? nextPlayerQueue에서 곡을 추출함.
   }, [nextPlayerQueue]);
 
   const handlePrevBtn = useCallback(() => {
@@ -35,7 +37,7 @@ const PlayerContent = () => {
       controls.pause();
       return;
     }
-    playPrev(); // 큐에 남은 노래가 있으면?
+    playPrev(); // 큐에 남은 노래가 있으면? prevPlayerQueue에서 곡을 추출함.
   }, [prevPlayerQueue]);
 
   useEffect(() => {
