@@ -16,6 +16,8 @@ const PlayerContent = () => {
     autoPlay: true, // 자동 재생 여부
   });
 
+  const duration = ref?.current?.duration ?? 0;
+
   const isLoading = activeSong?.src && state.buffered?.length === 0;
 
   const handleNextBtn = useCallback(() => {
@@ -53,6 +55,7 @@ const PlayerContent = () => {
           className="w-full"
           defaultValue={[0]}
           value={[state.time]}
+          max={duration}
           onValueChange={(value) => {
             controls.seek(value[0]);
           }}
