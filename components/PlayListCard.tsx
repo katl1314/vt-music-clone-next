@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { MdMoreVert } from "react-icons/md";
 import { FiPlay } from "react-icons/fi";
 import IconButton from "./elements/IconButton";
+import usePlayerState from "@/hooks/usePlayerState";
 
 interface IPlayListCard {
   playList: IPlayList;
@@ -16,6 +17,7 @@ interface IPlayListCard {
 const PlayListCard: React.FC<IPlayListCard> = ({ playList }) => {
   // 객체 구조 분해 할당
   const { id, owner, playlistName, songList } = playList;
+  const { addSongLIst } = usePlayerState();
   const { push } = useRouter();
   // 카드 클릭 이벤트
   const onClickCard = (id: number) => {
@@ -25,6 +27,7 @@ const PlayListCard: React.FC<IPlayListCard> = ({ playList }) => {
   // Play기능
   const onClickPlay = () => {
     // TODO 재생 기능 추가
+    addSongLIst(songList);
   };
 
   const imageSrc = getRandomElementFromArray(songList).imageSrc;

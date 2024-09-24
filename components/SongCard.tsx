@@ -1,3 +1,4 @@
+"use client";
 import { ITopSong } from "@/types";
 import Image from "next/image";
 import React from "react";
@@ -9,6 +10,7 @@ import {
 } from "react-icons/fi";
 import { RxTriangleDown, RxTriangleUp, RxDotFilled } from "react-icons/rx";
 import IconButton from "./elements/IconButton";
+import usePlayerState from "@/hooks/usePlayerState";
 
 interface ISongCardProps {
   song: ITopSong;
@@ -16,6 +18,9 @@ interface ISongCardProps {
 
 const SongCard: React.FC<ISongCardProps> = ({ song }) => {
   const { rank, prevRank, name, imageSrc } = song;
+
+  const handlePlay = () => {};
+
   return (
     <article className="flex flex-row items-center gap-4 w-full h-[48px] relative group cursor-pointer">
       {/* 이미지 */}
@@ -27,7 +32,10 @@ const SongCard: React.FC<ISongCardProps> = ({ song }) => {
           className="object-cover"
         />
         <section className="absolute w-[48px] h-[48px] hidden flex-row items-center justify-center cursor-pointer group-hover:flex bg-black">
-          <FiPlayCircle size="40" color="#aaaaaa" />
+          <IconButton
+            icon={<FiPlayCircle size="40" color="#aaaaaa" />}
+            onClickButton={handlePlay}
+          />
         </section>
       </div>
       <div className="flex flex-row items-center gap-4">

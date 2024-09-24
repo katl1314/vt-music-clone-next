@@ -23,6 +23,8 @@ const SongCardExpand: React.FC<ISongCardProps> = ({ song }) => {
     push(`/channel/${channelId}`);
   };
 
+  const handlePlay = () => {};
+
   return (
     <article className="flex flex-row items-center gap-4 w-full h-[48px] relative group cursor-pointer">
       {/* 이미지 */}
@@ -34,7 +36,10 @@ const SongCardExpand: React.FC<ISongCardProps> = ({ song }) => {
           className="object-cover"
         />
         <section className="absolute w-[48px] h-[48px] hidden flex-row items-center justify-center cursor-pointer group-hover:flex bg-black">
-          <FiPlayCircle size="40" color="#aaaaaa" />
+          <IconButton
+            icon={<FiPlayCircle size="40" color="#aaaaaa" />}
+            onClickButton={handlePlay}
+          />
         </section>
       </div>
       {/* basis-1/3 부모 너비의 1/3만큼 차지 */}

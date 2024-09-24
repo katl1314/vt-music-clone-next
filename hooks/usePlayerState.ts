@@ -18,11 +18,14 @@ interface IPlayerAction {
 }
 
 const usePlayerState = create<IPlayerState & IPlayerAction>((set) => ({
+  // State Initialization Start
   isVisiblePlayer: false,
   activeSong: null,
   prevPlayerQueue: [],
   nextPlayerQueue: [],
+  // State Initialization End
 
+  // Action Start
   setIsVisiblePlayer: (isVisiblePlayer) => set({ isVisiblePlayer }),
   addSongLIst: (songs) =>
     set((prev) => {
@@ -42,10 +45,11 @@ const usePlayerState = create<IPlayerState & IPlayerAction>((set) => ({
   playNext: () =>
     set((prev) => {
       const { activeSong, prevPlayerQueue, nextPlayerQueue } = prev;
-      const currentSong = activeSong;
-      const nextSong = nextPlayerQueue.splice(0, 1)?.[0];
+      const currentSong = activeSong; // 현재 실행중이였던 노래
+      const nextSong = nextPlayerQueue.splice(0, 1)?.[0]; // 다음 실행할 노래
       return {
         activeSong: nextSong, // 다음에 실행할 노래를 가져온다음에 activeSong에 추가
+        // prevPlayerQueue [currentSong, ...prevPlayerQueue]
         prevPlayerQueue: [
           // 현재 실행했던 노래는 이전 노래 리스트에 추가함.
           ...(currentSong ? [currentSong] : []),
@@ -70,6 +74,7 @@ const usePlayerState = create<IPlayerState & IPlayerAction>((set) => ({
         prevPlayerQueue: [...prevPlayerQueue],
       };
     }),
+  // Action End
 }));
 
 export default usePlayerState;
