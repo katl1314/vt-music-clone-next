@@ -48,9 +48,6 @@ const PlayerContent = () => {
     };
   }, [nextPlayerQueue, prevPlayerQueue, playPrev, playNext]);
 
-  // 리액트 훅은 조건부로 실행하면 안됨.
-  if (isLoading) return;
-  
   return (
     <div className="h-full w-full relative">
       <div className="absolute top-[-16px] w-full">

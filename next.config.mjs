@@ -9,6 +9,10 @@ const nextConfig = {
       },
     ],
   },
+  compress: true,
+  // env: {
+  //   '' : ''
+  // }
 };
 
 export default nextConfig;
